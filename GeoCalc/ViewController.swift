@@ -24,9 +24,11 @@ class ViewController: UIViewController {
     }
 
     @IBAction func calculateButtonTapped(_ sender: Any) {
+        // if have coords in text fields, calculate
     }
     
     @IBAction func clearButtonTapped(_ sender: Any) {
+        // clear text fields and reset outlets
     }
 }
 
