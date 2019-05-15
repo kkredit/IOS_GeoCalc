@@ -25,6 +25,10 @@ class ViewController: UIViewController {
 
     @IBAction func calculateButtonTapped(_ sender: Any) {
         // if have coords in text fields, calculate
+        
+        //calculate bearing
+        let p1 = CLLocation(p1Lat, p1Long)
+        let p2 = CLLocation(p2Lat, p2Long)
     }
     
     @IBAction func clearButtonTapped(_ sender: Any) {
