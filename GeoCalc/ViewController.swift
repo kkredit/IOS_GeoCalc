@@ -21,12 +21,29 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        let detectTouch = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+        self.view.addGestureRecognizer(detectTouch)
+    }
+    
+    @objc func dismissKeyboard() {
+        self.view.endEditing(true)
+    }
+    
+    func resetTextFields() {
+        distanceText.text = "Distance: "
+        bearingText.text = "Bearing: "
+        
+        p1LatInput.text = ""
+        p1LongInput.text = ""
+        p2LatInput.text = ""
+        p2LongInput.text = ""
     }
 
     @IBAction func calculateButtonTapped(_ sender: Any) {
+        dismissKeyboard()
+        
         // if have coords in text fields, calculate
-
         guard   let p1Lat = Double(p1LatInput.text!),
                 let p2Lat = Double(p2LatInput.text!),
                 let p1Long = Double(p1LongInput.text!),
@@ -38,24 +55,24 @@ class ViewController: UIViewController {
         let p1 = CLLocation(latitude:p1Lat,longitude: p1Long)
         let p2 = CLLocation(latitude:p2Lat,longitude: p2Long)
                 
-        //calculte distance between cordinates in meters.
-           let distanceInMeters =  p1.distance(from: p2)
+        //calculte distance between cordinates
+        let distanceInMeters =  p1.distance(from: p2)
+        let distInUnits = distanceInMeters / 1000.0
         
-         //calculte bearing
-//        func bearingToPoint(point:CLLocation) -> Double {
-//            let p1 = (self.coordinate.latitude, self.coordinate.longitude)
-//            let p2 = (point.coordinate.latitude, point.coordinate.longitude)
-//            let x = cos(p2.0) * sin(abs(p2.1 - p1.1))
-//            let y = cos(p1.0) * sin(p2.0) - sin(p1.0) * cos(p2.0) * cos(abs(p2.1 - p1.1))
-//
-//            return atan2(x,y) * 180.0 / Double.pi
-//        }
-
-        distanceText.text = "Distance: \(distanceInMeters / 1000.0)"
+        let distStr = String(format: "%.2f", distInUnits)
+        distanceText.text = "Distance: \(distStr) km"
+        
+        //calculte bearing
+        let bearing = p1.bearingToPoint(point: p2)
+        
+        let bearStr = String(format: "%.2f", bearing)
+        bearingText.text = "Bearing: \(bearStr) degrees"
     }
     
     @IBAction func clearButtonTapped(_ sender: Any) {
+        dismissKeyboard()
         // clear text fields and reset outlets
+        resetTextFields()
      }
   
 
