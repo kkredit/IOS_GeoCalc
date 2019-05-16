@@ -25,11 +25,20 @@ class ViewController: UIViewController {
 
     @IBAction func calculateButtonTapped(_ sender: Any) {
         // if have coords in text fields, calculate
+        guard let p1Lat = p1LatInput,let p2Lat = p2LatInput,let p1LongInput = p1LongInput,p2Long = p2LongInput,
+          !p1Lat.isEmpty, !p2Lat.isEmpty, !p1Long.isEmpty, !p2Long.isEmpty else {
+            return "Cannot be blank"
+    }
         
-        //calculate bearing
+        //set two cordinates points to constants
         let p1 = CLLocation(p1Lat, p1Long)
         let p2 = CLLocation(p2Lat, p2Long)
+       
+        
+      //calculte distance between cordinates in meters.
+       let distanceInMeters = p1.distance(from: p2)
     }
+    
     
     @IBAction func clearButtonTapped(_ sender: Any) {
         // clear text fields and reset outlets
