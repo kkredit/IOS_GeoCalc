@@ -19,6 +19,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var p2LatInput: UITextField!
     @IBOutlet weak var p2LongInput: UITextField!
     
+    @IBAction func settingsButton(_ sender: Any) {
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
