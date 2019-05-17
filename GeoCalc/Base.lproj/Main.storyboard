@@ -105,8 +105,8 @@
         <!--Settings-->
         <scene sceneID="J7q-hl-QBg">
             <objects>
-                <viewController id="JV1-Hr-utk" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="a6b-aF-gz7">
+                <viewController id="JV1-Hr-utk" customClass="SettingsViewController" customModule="GeoCalc" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="a6b-aF-gz7" customClass="button">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -124,32 +124,45 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="units" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLh-i5-34Y">
-                                <rect key="frame" x="357" y="121" width="37" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="units" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kT2-Pe-5iE">
-                                <rect key="frame" x="357" y="158" width="37" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wey-8o-CDR">
                                 <rect key="frame" x="0.0" y="646" width="414" height="216"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="units" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XPK-G7-ikM">
+                                <rect key="frame" x="258" y="121" width="136" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="units" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NwA-h3-Xqe">
+                                <rect key="frame" x="258" y="158" width="136" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="EtD-Ra-vxa"/>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="JGg-HG-5AM">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="rqI-p3-a2p"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="iDi-ZC-eF3"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="rqI-p3-a2p">
+                            <connections>
+                                <action selector="cancel:" destination="JV1-Hr-utk" id="WZT-Ne-L4G"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="iDi-ZC-eF3">
+                            <connections>
+                                <action selector="save:" destination="JV1-Hr-utk" id="jgp-dP-fgE"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="bearText" destination="NwA-h3-Xqe" id="f4f-2e-RsF"/>
+                        <outlet property="distText" destination="XPK-G7-ikM" id="eTb-An-vDB"/>
+                        <outlet property="picker" destination="wey-8o-CDR" id="6S1-74-mta"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CEO-O6-yUY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

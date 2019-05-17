@@ -9,8 +9,11 @@
 import UIKit
 import CoreLocation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, SettingsViewControllerDelegate {
 
+    var distUnits: String = "Kilometers"
+    var bearUnits: String = "Degrees"
+    
     @IBOutlet weak var distanceText: UILabel!
     @IBOutlet weak var bearingText: UILabel!
     
@@ -20,6 +23,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var p2LongInput: UITextField!
     
     @IBAction func settingsButton(_ sender: Any) {
+    }
+    
+    func reportSettings(dist: String, bear: String) {
+        distUnits = dist
+        bearUnits = bear
+        calculateButtonTapped(0)
     }
     
     override func viewDidLoad() {
@@ -60,16 +69,30 @@ class ViewController: UIViewController {
                 
         //calculte distance between cordinates
         let distanceInMeters =  p1.distance(from: p2)
-        let distInUnits = distanceInMeters / 1000.0
         
-        let distStr = String(format: "%.2f", distInUnits)
-        distanceText.text = "Distance: \(distStr) km"
+        if (distUnits == "Kilometers") {
+            let distInUnits = distanceInMeters / 1000.0
+            let distStr = String(format: "%.2f", distInUnits)
+            distanceText.text = "Distance: \(distStr) km"
+        }
+        else {
+            let distInUnits = distanceInMeters / 1000.0 * 0.621371
+            let distStr = String(format: "%.2f", distInUnits)
+            distanceText.text = "Distance: \(distStr) miles"
+        }
         
         //calculte bearing
         let bearing = p1.bearingToPoint(point: p2)
         
-        let bearStr = String(format: "%.2f", bearing)
-        bearingText.text = "Bearing: \(bearStr) degrees"
+        if (bearUnits == "Degrees") {
+            let bearStr = String(format: "%.2f", bearing)
+            bearingText.text = "Bearing: \(bearStr) degrees"
+        }
+        else {
+            let bearInMils = bearing * 17.777777777778
+            let bearStr = String(format: "%.2f", bearInMils)
+            bearingText.text = "Bearing: \(bearStr) mils"
+        }
     }
     
     @IBAction func clearButtonTapped(_ sender: Any) {
@@ -78,5 +101,13 @@ class ViewController: UIViewController {
         resetTextFields()
      }
   
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "homeToSettings" {
+            if let destNav = segue.destination as? UINavigationController {
+                if let dest = destNav.children[0] as? SettingsViewController {
+                    dest.delegate = self
+                }
+            }
+        }
+    }
 }
