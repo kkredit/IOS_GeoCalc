@@ -100,12 +100,14 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
         // clear text fields and reset outlets
         resetTextFields()
      }
-  
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "homeToSettings" {
             if let destNav = segue.destination as? UINavigationController {
                 if let dest = destNav.children[0] as? SettingsViewController {
                     dest.delegate = self
+                    dest.distSelection = distUnits
+                    dest.bearSelection = bearUnits
                 }
             }
         }
