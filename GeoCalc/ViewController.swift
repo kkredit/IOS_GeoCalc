@@ -25,9 +25,9 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
     @IBAction func settingsButton(_ sender: Any) {
     }
     
-    func reportSettings(dist: String, bear: String) {
-        distUnits = dist
-        bearUnits = bear
+    func settingsChanged(distanceUnits: String, bearingUnits: String) {
+        distUnits = distanceUnits
+        bearUnits = bearingUnits
         calculateButtonTapped(0)
     }
     

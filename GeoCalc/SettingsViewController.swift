@@ -9,8 +9,7 @@
 import UIKit
 
 protocol SettingsViewControllerDelegate {
-    func reportSettings(dist: String,
-                        bear: String)
+    func settingsChanged(distanceUnits: String, bearingUnits: String)
 }
 
 class SettingsViewController: UIViewController {
@@ -36,24 +35,31 @@ class SettingsViewController: UIViewController {
         picker.delegate = self
         picker.dataSource = self
 
+        let detectTouch = UITapGestureRecognizer(target: self, action: #selector(self.dismissPicker))
+        self.view.addGestureRecognizer(detectTouch)
+        
         updateUnitsText()
+        dismissPicker()
+    }
+    
+    @objc func dismissPicker() {
         picker.isHidden = true
     }
     
     @objc func displayDistancePicker(){
         print("distance picker")
         self.pickerOptions = ["Kilometers", "Miles"]
+        self.pickerSelection = self.distText
         self.picker.isHidden = false
         self.picker.reloadAllComponents()
-        self.pickerSelection = self.distText
     }
     
     @objc func displayBearingPicker(){
         print("bearing picker")
         self.pickerOptions = ["Degrees", "Mils"]
+        self.pickerSelection = self.bearText
         self.picker.isHidden = false
         self.picker.reloadAllComponents()
-        self.pickerSelection = self.bearText
     }
     
     func updateUnitsText() {
@@ -67,7 +73,7 @@ class SettingsViewController: UIViewController {
     
     @IBAction func save(_ sender: UIBarButtonItem) {
         if let del = self.delegate {
-            del.reportSettings(dist: self.distText.text!, bear: bearText.text!)
+            del.settingsChanged(distanceUnits: self.distText.text!, bearingUnits: bearText.text!)
         }
         self.dismiss(animated: true, completion: nil)
     }
