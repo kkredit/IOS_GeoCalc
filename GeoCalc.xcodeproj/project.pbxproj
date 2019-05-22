@@ -11,6 +11,7 @@
 		6735B8A6228BA1200072C058 /* DecimalMinusTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6735B8A5228BA1200072C058 /* DecimalMinusTextField.swift */; };
 		67C969D0228E37EE005882F8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C969CF228E37EE005882F8 /* SettingsViewController.swift */; };
 		9D57CC0D2294D3E800A14446 /* GeoCalcTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D57CC0C2294D3E800A14446 /* GeoCalcTextField.swift */; };
+		9D57CC0F2294D6CE00A14446 /* GeoCalcLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D57CC0E2294D6CE00A14446 /* GeoCalcLabel.swift */; };
 		9DD5159F228B79EE0045CEB1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD5159E228B79EE0045CEB1 /* AppDelegate.swift */; };
 		9DD515A1228B79EE0045CEB1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD515A0228B79EE0045CEB1 /* ViewController.swift */; };
 		9DD515A4228B79EE0045CEB1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DD515A2228B79EE0045CEB1 /* Main.storyboard */; };
@@ -42,6 +43,7 @@
 		6735B8A5228BA1200072C058 /* DecimalMinusTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecimalMinusTextField.swift; sourceTree = "<group>"; };
 		67C969CF228E37EE005882F8 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		9D57CC0C2294D3E800A14446 /* GeoCalcTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoCalcTextField.swift; sourceTree = "<group>"; };
+		9D57CC0E2294D6CE00A14446 /* GeoCalcLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoCalcLabel.swift; sourceTree = "<group>"; };
 		9DD5159B228B79EE0045CEB1 /* GeoCalc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeoCalc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DD5159E228B79EE0045CEB1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9DD515A0228B79EE0045CEB1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				9DD5159E228B79EE0045CEB1 /* AppDelegate.swift */,
 				6735B8A5228BA1200072C058 /* DecimalMinusTextField.swift */,
 				9D57CC0C2294D3E800A14446 /* GeoCalcTextField.swift */,
+				9D57CC0E2294D6CE00A14446 /* GeoCalcLabel.swift */,
 				9DD515A0228B79EE0045CEB1 /* ViewController.swift */,
 				67C969CF228E37EE005882F8 /* SettingsViewController.swift */,
 				6735B8A3228BA1190072C058 /* CLLocationExtensions.swift */,
@@ -273,6 +276,7 @@
 				9D57CC0D2294D3E800A14446 /* GeoCalcTextField.swift in Sources */,
 				6735B8A6228BA1200072C058 /* DecimalMinusTextField.swift in Sources */,
 				67C969D0228E37EE005882F8 /* SettingsViewController.swift in Sources */,
+				9D57CC0F2294D6CE00A14446 /* GeoCalcLabel.swift in Sources */,
 				9DD5159F228B79EE0045CEB1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
