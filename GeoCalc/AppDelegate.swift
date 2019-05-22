@@ -8,6 +8,11 @@
 
 import UIKit
 
+let BACKGROUND_COLOR = UIColor.init(red:0.03, green:0.69,
+                                    blue:0.03, alpha:1.00) // Dark green
+let FOREGROUND_COLOR = UIColor.init(red: 0.937, green: 0.820,
+                                    blue: 0.576, alpha: 1.0)  //Tannish
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -15,7 +20,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        let navAppearance = UINavigationBar.appearance()
+        navAppearance.barTintColor = BACKGROUND_COLOR
+        navAppearance.tintColor = FOREGROUND_COLOR
+        navAppearance.isTranslucent = false
+        navAppearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
+        
         return true
     }
 
