@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QFH-2M-BH8">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hU0-z3-oCW" userLabel="OuterStackView">
-                                <rect key="frame" x="8" y="52" width="398" height="68"/>
+                                <rect key="frame" x="8" y="96" width="398" height="68"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="aSu-lq-Ode">
                                         <rect key="frame" x="0.0" y="0.0" width="398" height="30"/>
@@ -59,35 +59,27 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nnK-T4-DwQ" customClass="GeoCalcButton" customModule="GeoCalc" customModuleProvider="target">
-                                <rect key="frame" x="8" y="128" width="138" height="30"/>
+                                <rect key="frame" x="8" y="172" width="138" height="30"/>
                                 <state key="normal" title="Calculate"/>
                                 <connections>
                                     <action selector="calculateButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="v98-iV-wWJ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Y8-3F-rip" customClass="GeoCalcButton" customModule="GeoCalc" customModuleProvider="target">
-                                <rect key="frame" x="268" y="128" width="138" height="30"/>
+                                <rect key="frame" x="268" y="172" width="138" height="30"/>
                                 <state key="normal" title="Clear"/>
                                 <connections>
                                     <action selector="clearButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0pe-9l-DVf"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AgD-lU-SpO" customClass="GeoCalcLabel" customModule="GeoCalc" customModuleProvider="target">
-                                <rect key="frame" x="8" y="166" width="398" height="20.5"/>
+                                <rect key="frame" x="8" y="210" width="398" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="keo-3v-aXU" customClass="GeoCalcButton" customModule="GeoCalc" customModuleProvider="target">
-                                <rect key="frame" x="138" y="840" width="138" height="30"/>
-                                <state key="normal" title="Settings"/>
-                                <connections>
-                                    <action selector="settingsButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="h0L-qC-oBi"/>
-                                    <segue destination="veJ-A1-DPv" kind="show" identifier="homeToSettings" id="7hg-qy-0UZ"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bearing:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VDv-uz-As7" customClass="GeoCalcLabel" customModule="GeoCalc" customModuleProvider="target">
-                                <rect key="frame" x="8" y="194.5" width="398" height="20.5"/>
+                                <rect key="frame" x="8" y="238.5" width="398" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -97,9 +89,7 @@
                         <constraints>
                             <constraint firstItem="nnK-T4-DwQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="1gN-BC-7s0"/>
                             <constraint firstItem="9Y8-3F-rip" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="1:3" id="6lX-Fe-SsA"/>
-                            <constraint firstItem="keo-3v-aXU" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="8" id="8MZ-fe-OGQ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="AgD-lU-SpO" secondAttribute="trailing" constant="8" id="9d4-a7-mDR"/>
-                            <constraint firstItem="keo-3v-aXU" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="1:3" id="DCE-5y-lZd"/>
                             <constraint firstItem="AgD-lU-SpO" firstAttribute="top" secondItem="nnK-T4-DwQ" secondAttribute="bottom" constant="8" id="H3q-2e-roM"/>
                             <constraint firstItem="VDv-uz-As7" firstAttribute="top" secondItem="AgD-lU-SpO" secondAttribute="bottom" constant="8" symbolic="YES" id="HVq-NS-fbi"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9Y8-3F-rip" secondAttribute="trailing" constant="8" id="INz-gW-voE"/>
@@ -112,10 +102,21 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hU0-z3-oCW" secondAttribute="trailing" constant="8" id="lZ4-hD-cch"/>
                             <constraint firstItem="VDv-uz-As7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="poM-3D-3Tk"/>
                             <constraint firstItem="hU0-z3-oCW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="qLG-yM-bMv"/>
-                            <constraint firstItem="keo-3v-aXU" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="r2f-F5-LSR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="b80-cs-rgL">
+                        <barButtonItem key="leftBarButtonItem" title="History" id="AtM-Rj-2fL">
+                            <connections>
+                                <segue destination="mA1-ms-lDZ" kind="show" identifier="historySegue" id="z2y-g3-0tb"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="BCJ-sC-tra">
+                            <connections>
+                                <segue destination="JV1-Hr-utk" kind="show" identifier="settingsSegue" id="UT6-Bb-TTH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="bearingText" destination="VDv-uz-As7" id="oHB-y2-wN1"/>
                         <outlet property="distanceText" destination="AgD-lU-SpO" id="X8V-Y4-Sm5"/>
@@ -127,7 +128,51 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-517.39130434782612" y="137.94642857142856"/>
+            <point key="canvasLocation" x="12" y="138"/>
+        </scene>
+        <!--History Table View Controller-->
+        <scene sceneID="VVv-OS-jZB">
+            <objects>
+                <tableViewController id="mA1-ms-lDZ" customClass="HistoryTableViewController" customModule="GeoCalc" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="aWV-81-PB2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cellId" textLabel="wSt-fu-UMq" detailTextLabel="wen-VR-aOa" style="IBUITableViewCellStyleSubtitle" id="c9O-T2-yXF">
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="c9O-T2-yXF" id="ohy-VL-jrQ">
+                                    <rect key="frame" x="0.0" y="0.0" width="376" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wSt-fu-UMq">
+                                            <rect key="frame" x="20" y="5" width="33.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wen-VR-aOa">
+                                            <rect key="frame" x="20" y="25.5" width="44" height="14.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="mA1-ms-lDZ" id="Mhm-Gk-gbx"/>
+                            <outlet property="delegate" destination="mA1-ms-lDZ" id="kXU-Ph-5x5"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b1U-Vl-FTy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1027" y="128"/>
         </scene>
         <!--Settings-->
         <scene sceneID="J7q-hl-QBg">
@@ -217,23 +262,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CEO-O6-yUY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1195.6521739130435" y="137.94642857142856"/>
+            <point key="canvasLocation" x="2029" y="132"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="ma1-sK-xKd">
+        <scene sceneID="ijQ-7w-lMR">
             <objects>
-                <navigationController id="veJ-A1-DPv" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5pZ-TL-rjE">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QFH-2M-BH8" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="U4f-VN-82C">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="JV1-Hr-utk" kind="relationship" relationship="rootViewController" id="26l-qa-iCf"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="kIO-ff-GVl"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2tm-WG-o23" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NAh-lK-bxm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="390" y="138"/>
+            <point key="canvasLocation" x="-987" y="138"/>
         </scene>
     </scenes>
 </document>

@@ -13,6 +13,10 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
 
     var distUnits: String = "Kilometers"
     var bearUnits: String = "Degrees"
+    var entries:[LocationLookup]=[]
+    
+    
+    
     
     @IBOutlet weak var distanceText: UILabel!
     @IBOutlet weak var bearingText: UILabel!
@@ -64,6 +68,10 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
                 return
         }
         
+        //stores a new instance to the array
+        entries.append(LocationLookup(origLat: p1Lat, origLng: p1Long, destLat: p2Lat,
+                                      destLng: p2Long, timestamp: Date()))
+
         //set two cordinates points to constants
         let p1 = CLLocation(latitude:p1Lat,longitude: p1Long)
         let p2 = CLLocation(latitude:p2Lat,longitude: p2Long)
@@ -109,6 +117,16 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
                     dest.delegate = self
                     dest.distSelection = distUnits
                     dest.bearSelection = bearUnits
+                }
+            }
+        }
+        else if segue.identifier == "historySegue" {
+            if let destNav = segue.destination as? UINavigationController {
+                if let dest = destNav.children[0] as? TableViewController {
+                    dest.delegate = self
+                    dest.histDistance = distUnits
+                    dest.histBearing = distUnits
+                    
                 }
             }
         }
