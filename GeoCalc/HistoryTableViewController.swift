@@ -20,20 +20,18 @@ class HistoryTableViewController: UITableViewController{
     }
     
     override func tableView( _ _tableView: UITableView,numberOfRowsInSection section:Int)->Int{
-        
-        if let locations = self.entries {
-            return locations.count
-        }else {
-            return 0
-        }
-        
+        return entries.count
     }
     
     override func tableView(_ _tableView: UITableView,cellForRowAt indexPath:IndexPath)-> UITableViewCell{
-        let cell = tableV.dequeueReusableCell(withIdentifier: "cellId" ,for:IndexPath)
-        
-        if let
+        let cell = self.tableV.dequeueReusableCell(withIdentifier: "cellId", for: indexPath)
         
         return cell
+    }
+    
+}
+extension UINavigationController{
+    override open var preferredStatusBarStyle: UIStatusBarStyle {
+        return topViewController?.preferredStatusBarStyle ?? .default
     }
 }

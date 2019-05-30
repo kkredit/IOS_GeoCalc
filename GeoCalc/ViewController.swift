@@ -26,8 +26,8 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
     @IBOutlet weak var p2LatInput: UITextField!
     @IBOutlet weak var p2LongInput: UITextField!
     
-    @IBAction func settingsButton(_ sender: Any) {
-    }
+//    @IBAction func settingsButton(_ sender: Any) {
+//    }
     
     func settingsChanged(distanceUnits: String, bearingUnits: String) {
         distUnits = distanceUnits
@@ -123,7 +123,8 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
         else if segue.identifier == "historySegue" {
             if let destNav = segue.destination as? UINavigationController {
                 if let dest = destNav.children[0] as? HistoryTableViewController {
-                    dest.entries.
+                   dest.entries = self.entries
+                    
                 }
             }
         }
