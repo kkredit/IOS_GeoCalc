@@ -8,9 +8,32 @@
 import UIKit
 import Foundation
 
-class HistoryTableViewController: UITableViewController {
+class HistoryTableViewController: UITableViewController{
     var entries :[LocationLookup] = []
-    var histDistance: String = "Kilometers"
-    var histBearing: String = "Degrees"
     
+    
+    @IBOutlet weak var tableV: UITableView!
+    
+    //Mark: -Table View Data Source
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    override func tableView( _ _tableView: UITableView,numberOfRowsInSection section:Int)->Int{
+        
+        if let locations = self.entries {
+            return locations.count
+        }else {
+            return 0
+        }
+        
+    }
+    
+    override func tableView(_ _tableView: UITableView,cellForRowAt indexPath:IndexPath)-> UITableViewCell{
+        let cell = tableV.dequeueReusableCell(withIdentifier: "cellId" ,for:IndexPath)
+        
+        if let
+        
+        return cell
+    }
 }

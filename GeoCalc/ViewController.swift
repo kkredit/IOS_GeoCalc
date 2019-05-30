@@ -122,11 +122,8 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
         }
         else if segue.identifier == "historySegue" {
             if let destNav = segue.destination as? UINavigationController {
-                if let dest = destNav.children[0] as? TableViewController {
-                    dest.delegate = self
-                    dest.histDistance = distUnits
-                    dest.histBearing = distUnits
-                    
+                if let dest = destNav.children[0] as? HistoryTableViewController {
+                    dest.entries.
                 }
             }
         }

@@ -114,10 +114,10 @@
 			isa = PBXGroup;
 			children = (
 				9DD5159E228B79EE0045CEB1 /* AppDelegate.swift */,
+				9DD515A0228B79EE0045CEB1 /* ViewController.swift */,
 				6735B8A5228BA1200072C058 /* DecimalMinusTextField.swift */,
 				9D57CC0C2294D3E800A14446 /* GeoCalcTextField.swift */,
 				9D57CC0E2294D6CE00A14446 /* GeoCalcLabel.swift */,
-				9DD515A0228B79EE0045CEB1 /* ViewController.swift */,
 				67C969CF228E37EE005882F8 /* SettingsViewController.swift */,
 				6735B8A3228BA1190072C058 /* CLLocationExtensions.swift */,
 				9DD515A2228B79EE0045CEB1 /* Main.storyboard */,
