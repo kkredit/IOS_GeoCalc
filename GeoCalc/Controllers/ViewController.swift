@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class ViewController: UIViewController, SettingsViewControllerDelegate {
+class ViewController: UIViewController, SettingsViewControllerDelegate{
 
     var distUnits: String = "Kilometers"
     var bearUnits: String = "Degrees"
@@ -123,7 +123,7 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
         else if segue.identifier == "historySegue" {
             if let destNav = segue.destination as? UINavigationController {
                 if let dest = destNav.children[0] as? HistoryTableViewController {
-                   dest.entries = self.entries
+                   dest.entries = entries
                     
                 }
             }

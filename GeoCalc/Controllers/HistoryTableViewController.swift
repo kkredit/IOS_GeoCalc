@@ -11,8 +11,12 @@ import Foundation
 class HistoryTableViewController: UITableViewController{
     var entries :[LocationLookup] = []
     
+    @IBOutlet weak var tView: UITableView!
     
-    @IBOutlet weak var tableV: UITableView!
+    override func viewDidLoad() {
+      super.viewDidLoad()
+      
+    }
     
     //Mark: -Table View Data Source
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -24,8 +28,14 @@ class HistoryTableViewController: UITableViewController{
     }
     
     override func tableView(_ _tableView: UITableView,cellForRowAt indexPath:IndexPath)-> UITableViewCell{
-        let cell = self.tableV.dequeueReusableCell(withIdentifier: "cellId", for: indexPath)
+        let cell = tView.dequeueReusableCell(withIdentifier: "cellId", for:indexPath)
         
+        var locations = ""
+        
+        for LocationLookup in entries{
+            locations += String(LocationLookup) + ""
+        }
+        cell.textLabel?.text = entries[indexPath.row]
         return cell
     }
     
