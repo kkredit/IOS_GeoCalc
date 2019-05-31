@@ -9,7 +9,16 @@
 import UIKit
 import CoreLocation
 
-class ViewController: UIViewController, SettingsViewControllerDelegate{
+class ViewController: UIViewController, SettingsViewControllerDelegate,HistoryTableViewControllerDelegate{
+    func selectEntry(entry: LocationLookup) {
+        p1LatInput.text = "\(entry.origLat)"
+        p1LongInput.text = "\(entry.origLng)"
+        p2LatInput.text = "\(entry.destLat)"
+        p2LongInput.text = "\(entry.destLng)"
+        
+        recalculate()
+    }
+    
 
     var distUnits: String = "Kilometers"
     var bearUnits: String = "Degrees"
@@ -60,6 +69,7 @@ class ViewController: UIViewController, SettingsViewControllerDelegate{
     @IBAction func calculateButtonTapped(_ sender: Any) {
         dismissKeyboard()
         
+        
         // if have coords in text fields, calculate
         guard   let p1Lat = Double(p1LatInput.text!),
                 let p2Lat = Double(p2LatInput.text!),
@@ -68,10 +78,23 @@ class ViewController: UIViewController, SettingsViewControllerDelegate{
                 return
         }
         
+        
         //stores a new instance to the array
         entries.append(LocationLookup(origLat: p1Lat, origLng: p1Long, destLat: p2Lat,
                                       destLng: p2Long, timestamp: Date()))
-
+        
+        recalculate()
+    }
+        
+        
+        func recalculate() {
+            // if have coords in text fields, calculate
+            guard   let p1Lat = Double(p1LatInput.text!),
+                let p2Lat = Double(p2LatInput.text!),
+                let p1Long = Double(p1LongInput.text!),
+                let p2Long = Double(p2LongInput.text!) else {
+                    return
+            }
         //set two cordinates points to constants
         let p1 = CLLocation(latitude:p1Lat,longitude: p1Long)
         let p2 = CLLocation(latitude:p2Lat,longitude: p2Long)
@@ -121,12 +144,10 @@ class ViewController: UIViewController, SettingsViewControllerDelegate{
             }
         }
         else if segue.identifier == "historySegue" {
-            if let destNav = segue.destination as? UINavigationController {
-                if let dest = destNav.children[0] as? HistoryTableViewController {
-                   dest.entries = entries
+                if let dest = segue.destination as? HistoryTableViewController {
+                   dest.entries = self.entries
                     
                 }
-            }
         }
     }
 }

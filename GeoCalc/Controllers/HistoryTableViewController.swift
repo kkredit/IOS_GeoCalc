@@ -8,16 +8,17 @@
 import UIKit
 import Foundation
 
+
+protocol HistoryTableViewControllerDelegate{
+    func selectEntry(entry: LocationLookup)
+}
+
 class HistoryTableViewController: UITableViewController{
     var entries :[LocationLookup] = []
+    var delegate :HistoryTableViewControllerDelegate?
+    var historyDelegate:HistoryTableViewControllerDelegate?
     
-    @IBOutlet weak var tView: UITableView!
-    
-    override func viewDidLoad() {
-      super.viewDidLoad()
-      
-    }
-    
+
     //Mark: -Table View Data Source
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -28,20 +29,31 @@ class HistoryTableViewController: UITableViewController{
     }
     
     override func tableView(_ _tableView: UITableView,cellForRowAt indexPath:IndexPath)-> UITableViewCell{
-        let cell = tView.dequeueReusableCell(withIdentifier: "cellId", for:indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellId", for:indexPath)
+    
         
-        var locations = ""
-        
-        for LocationLookup in entries{
-            locations += String(LocationLookup) + ""
-        }
-        cell.textLabel?.text = entries[indexPath.row]
+        let entry = self.entries[indexPath.row]
+        let lblText = "\(entry.origLat),\(entry.origLng),\(entry.destLat),\(entry.destLng)"
+        let title = "\(entry.timestamp)"
+        cell.detailTextLabel?.text = title
+        cell.textLabel?.text = lblText
+    
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let del = self.historyDelegate{
+            let trial = entries[indexPath.row]
+            del.selectEntry(entry:trial)
+        }
+        _ = self.navigationController?.popViewController(animated: true)
+    }
 }
+
 extension UINavigationController{
     override open var preferredStatusBarStyle: UIStatusBarStyle {
         return topViewController?.preferredStatusBarStyle ?? .default
     }
 }
+
+
