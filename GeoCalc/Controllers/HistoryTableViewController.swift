@@ -33,7 +33,7 @@ class HistoryTableViewController: UITableViewController{
     
         
         let entry = self.entries[indexPath.row]
-        let lblText = "\(entry.origLat),\(entry.origLng),\(entry.destLat),\(entry.destLng)"
+        let lblText = "(\(entry.origLat),\(entry.origLng)) (\(entry.destLat),\(entry.destLng))"
         let title = "\(entry.timestamp)"
         cell.detailTextLabel?.text = title
         cell.textLabel?.text = lblText
