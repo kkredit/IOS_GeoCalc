@@ -117,7 +117,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="BCJ-sC-tra">
                             <connections>
-                                <segue destination="JV1-Hr-utk" kind="show" identifier="settingsSegue" id="UT6-Bb-TTH"/>
+                                <segue destination="JV1-Hr-utk" kind="show" identifier="homeToSettings" id="UT6-Bb-TTH"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

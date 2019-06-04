@@ -68,14 +68,16 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
+//        self.dismiss(animated: true, completion: nil)
+        _ = self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func save(_ sender: UIBarButtonItem) {
         if let del = self.delegate {
             del.settingsChanged(distanceUnits: self.distText.text!, bearingUnits: bearText.text!)
         }
-        self.dismiss(animated: true, completion: nil)
+//        self.dismiss(animated: true, completion: nil)
+        _ = self.navigationController?.popViewController(animated: true)
     }
 }
 

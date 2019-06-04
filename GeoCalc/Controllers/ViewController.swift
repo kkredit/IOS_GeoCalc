@@ -135,19 +135,17 @@ class ViewController: UIViewController, SettingsViewControllerDelegate,HistoryTa
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "homeToSettings" {
-            if let destNav = segue.destination as? UINavigationController {
-                if let dest = destNav.children[0] as? SettingsViewController {
-                    dest.delegate = self
-                    dest.distSelection = distUnits
-                    dest.bearSelection = bearUnits
-                }
+            if let dest = segue.destination as? SettingsViewController {
+                dest.delegate = self
+                dest.distSelection = distUnits
+                dest.bearSelection = bearUnits
             }
         }
         else if segue.identifier == "historySegue" {
-                if let dest = segue.destination as? HistoryTableViewController {
-                   dest.entries = self.entries
-                    
-                }
+            if let dest = segue.destination as? HistoryTableViewController {
+                dest.delegate = self
+                dest.entries = self.entries                
+            }
         }
     }
 }

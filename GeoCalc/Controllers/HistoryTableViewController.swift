@@ -16,8 +16,6 @@ protocol HistoryTableViewControllerDelegate{
 class HistoryTableViewController: UITableViewController{
     var entries :[LocationLookup] = []
     var delegate :HistoryTableViewControllerDelegate?
-    var historyDelegate:HistoryTableViewControllerDelegate?
-    
 
     //Mark: -Table View Data Source
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -42,7 +40,7 @@ class HistoryTableViewController: UITableViewController{
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let del = self.historyDelegate{
+        if let del = self.delegate{
             let trial = entries[indexPath.row]
             del.selectEntry(entry:trial)
         }
